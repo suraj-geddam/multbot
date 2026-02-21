@@ -1,0 +1,15 @@
+# Superpowers working artifacts
+docs/plans/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.envrc
