@@ -28,4 +28,24 @@ An LLM-powered bot that plays Balatro via the BalatroBot JSON-RPC API, benchmark
 
 ## Conventions
 
-- TBD (will be filled in after architecture planning)
+- Async everywhere (httpx, openai SDK)
+- Pure functions for encoding/transformation (state.py)
+- Dataclasses for structured data (RunStats)
+- No Jinja2 — prompts are plain Python strings
+- Tests: behavior-focused, no mocking of external services
+- CLI: argparse, asyncio.run at the boundary
+
+## Running
+
+```bash
+# Prerequisites: BalatroBot running, llama.cpp server running
+uvx balatrobot serve          # Terminal 1
+# Start llama.cpp server       # Terminal 2
+uv run multbot --verbose      # Terminal 3
+```
+
+## Testing
+
+```bash
+uv run pytest -v
+```
